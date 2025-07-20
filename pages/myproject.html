@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/root.css">
+    <link rel="stylesheet" href="../styles/myproject.css">
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+          <img src="../img/dw-logo.png" class="logoDW" alt="Logo" />
+          <a href="./index.html" class="nav-link">Home</a>
+          <a href="./myproject.html" class="nav-link active">My Project</a>
+        </div>
+        <div class="navbar-right">
+            <a href="./contact.html">
+              <button   class="contact-button">Contact Me</button>
+            </a>
+        </div>
+    </nav>
+     <div class="container">
+        <h1 class="PROJECT">MY PROJECT</h1>
+        <div class="row-flex space-end">
+            <!-- <a class="add_project" href="./add_project.html"> -->
+                <button class="btn btn-add">
+                    + Add Project
+                </button>
+            <!-- </a>               -->
+        </div>
+        <hr/>
+        <div class="warning">
+            <div class="col-warning">
+                <div style="text-align: center; padding: 30px;" >
+                  <p style="font-size: 18px; color: #888;" >
+                    Belum ada project.<br>
+                    Silakan tambahkan data project Anda terlebih dahulu.
+                  </p>
+                </div>
+              </div>
+        </div>
+        <div class="row" > 
+            
+        </div>
+    </div>
+    <script src="../script/project.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
