@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project</title>
+    <link rel="stylesheet" href="../styles/add_project.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/root.css">
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+</head>
+<body>
+   <nav class="navbar">
+        <div class="navbar-left">
+          <img src="../img/dw-logo.png" class="logoDW" alt="Logo" />
+          <a href="./index.html" class="nav-link ">Home</a>
+          <a href="./myproject.html" class="nav-link ">My Project</a>
+        </div>
+        <div class="navbar-right">
+          <button class="contact-button">Contact Me</button>
+        </div>
+    </nav> 
+     <div class="container">
+        <div class="content">
+            <div>
+                <h2>ADD MY PROJECT</h2>
+            </div>
+             <form>
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" name="projectName">
+                    <div class="date-container">
+                        <div class="date-input">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" name="startDate">
+                        </div>
+                        <div class="date-input">
+                            <label for="endDate">End Date</label>
+                            <input type="date" id="endDate" name="endDate">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description"></textarea>
+                </div>
+                <label>Technologies</label>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="tech" value="nodejs"> Node Js</label>
+                        <label><input type="checkbox" name="tech" value="nextjs"> Next Js</label>
+                        <label><input type="checkbox" name="tech" value="reactjs"> React Js</label>
+                        <label><input type="checkbox" name="tech" value="typescript"> TypeScript</label>
+                    </div>
+
+                <label for="uploadImage">Upload Image</label>
+                <div class="input-file">
+                    <input type="file" id="fileInput"  hidden>
+                    <div class="label-upload">
+                        <label for="fileInput" class="custom-file-button">choose</label>
+                        <p class="value-input-upload"></p>
+                    </div>
+                    <i class="fa-solid fa-link icon-link"></i>
+                </div>
+                
+                <div class="form-group-button">
+                    <button class="button-submit">Submit</button>
+                </div>
+             </form>
+        </div>
+     </div> 
+<script src="../script/add_project.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
