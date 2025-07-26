@@ -177,10 +177,6 @@ textarea {
     width: 100%;
   }
 
-  .navbar-left, .navbar-right {
-    padding: 0 20px;
-  }
-
   .date-container {
     flex-direction: column;
     gap: 10px;

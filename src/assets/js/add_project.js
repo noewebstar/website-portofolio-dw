@@ -44,7 +44,7 @@ document.querySelector(".button-submit").addEventListener("click", function (e) 
       showConfirmButton: false
     }).then(() => {
       document.querySelector("form").reset();
-      window.location.href = "/pages/myproject.html";
+      window.location.href = "/myproject";
     });
   };
 

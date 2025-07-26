@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../styles/navbar.css">
-    <link rel="stylesheet" href="../styles/root.css">
-    <link rel="stylesheet" href="../styles/myproject.css">
-    <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <title>{{title}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/myproject.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/root.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
 
+   
   </head>
 <body>
     <nav class="navbar">
         <div class="navbar-left">
-          <img src="../img/dw-logo.png" class="logoDW" alt="Logo" />
+          <img src="/img/dw-logo.png" class="logoDW" alt="Logo" />
           <a href="/" class="nav-link">Home</a>
-          <a href="/project" class="nav-link active">My Project</a>
+          <a href="/myproject" class="nav-link active">My Project</a>
         </div>
         <div class="navbar-right">
             <a href="/contact">
@@ -35,23 +36,39 @@
         </div>
         <hr/>
 
-        <div class="warning-alert">
-          <div class="col">
-              <div style="text-align: center; padding: 30px;" >
-                <p style="font-size: 18px; color: #888;" >
+        {{#if projects.length}}
+          <div class="row row-content">
+            {{#each projects}}
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        {{else}}
+          <div class="warning-alert" id="warning-alert">
+            <div class="col">
+              <div style="text-align: center; padding: 30px;">
+                <p style="font-size: 18px; color: #888;">
                   Belum ada project.<br>
                   Silakan tambahkan data project Anda terlebih dahulu.
                 </p>
               </div>
             </div>
-        </div>
-        <div class="row row-content" > 
+          </div>
+        {{/if}}
+
+ 
         
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
-    <script src="../script/project.js"></script>
+    <script src="/js/project.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

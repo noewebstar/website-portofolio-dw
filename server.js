@@ -1,21 +1,26 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const fs = require("fs");
-const path = require("path");
-const router=require("./src/routers")
+
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import route from "./src/routers.js";
 
 const app = express();
-app.use(cors());
 app.use(express.json());
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(__dirname, "public")));
-app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
-app.use(router)
+app.use(express.urlencoded({ extended: false }));
+
+app.use('/fontawesome', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free')));
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "src/views"));
+app.use(express.static(path.join(__dirname, "src", "assets")));
+app.use("/", route);
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });
+

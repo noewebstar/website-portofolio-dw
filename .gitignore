@@ -1,16 +1,3 @@
-node_modules/
-
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-
-
-.DS_Store
-*.swp
-.vscode/
-.idea/
-
+node_modules
+.env
 

@@ -1,70 +1,38 @@
-const express = require("express")
-const router = express.Router()
-const path = require("path")
-const fs =require("fs")
+import express from "express";
+import path from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const router = express.Router();
 
 router.get("/", (req, res) => {
-    const htmlPath = path.join(__dirname, "../","public", "pages", "index.html");
-    fs.readFile(htmlPath, "utf8", (err, html) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).send("Gagal membaca file HTML");
-      }
-      res.setHeader("Content-Type", "text/html");
-      res.send(html);
-    });
-  });
-
-router.get("/project", (req, res) => {
-    const htmlPath = path.join(__dirname, "../","public", "pages", "myproject.html");
-    fs.readFile(htmlPath, "utf8", (err, html) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).send("Gagal membaca file HTML");
-      }
-      res.setHeader("Content-Type", "text/html");
-      res.send(html);
-    });
+  res.render("index", { title: "Home" });
 });
 
-router.get("/contact", (req, res) => {
-    const htmlPath = path.join(__dirname, "../","public", "pages", "contact.html");
-    fs.readFile(htmlPath, "utf8", (err, html) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).send("Gagal membaca file HTML");
-      }
-      res.setHeader("Content-Type", "text/html");
-      res.send(html);
-    });
+router.get("/myproject", (req, res) => {
+  res.render("myproject", { title: "My Project" });
 });
-
-router.get("/detail", (req, res) => {
-    const htmlPath = path.join(__dirname, "../","public", "pages", "detail.html");
-    fs.readFile(htmlPath, "utf8", (err, html) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).send("Gagal membaca file HTML");
-      }
-      res.setHeader("Content-Type", "text/html");
-      res.send(html);
-    });
+router.post("/add_project", (req, res) => {
+  const { projectName, startDate, endDate, description, tech } = req.body;
+  console.log("New Project:", { projectName, startDate, endDate, description, tech });
+  res.redirect("/myproject");
 });
 
 router.get("/add_project", (req, res) => {
-    const htmlPath = path.join(__dirname, "../","public", "pages", "add_project.html");
-    fs.readFile(htmlPath, "utf8", (err, html) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).send("Gagal membaca file HTML");
-      }
-      res.setHeader("Content-Type", "text/html");
-      res.send(html);
-    });
+  res.render("add_project", { title: "Add Project" });
+});
+
+router.get("/detail", (req, res) => {
+  res.render("detail", { title: "Detail" });
+});
+
+router.get("/contact", (req, res) => {
+  res.render("contact", { title: "Contact" });
 });
 
 
-
-
-module.exports = router
+export default router;

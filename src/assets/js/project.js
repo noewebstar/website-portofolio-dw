@@ -1,11 +1,13 @@
 function loadProjects() {
     const container = document.getElementsByClassName("row-content")[0];
-    const warning = document.querySelector(".warning-alert");
     const projects = JSON.parse(localStorage.getItem("projects")) || [];
-    if (projects.length === 0) {
+    const warning = document.querySelector(".warning-alert");
+    if (warning) {
+      if (projects.length === 0) {
         warning.style.display = "flex";
       } else {
         warning.style.display = "none";
+      }
     }
     container.innerHTML = ""; // bersihkan isi lama
     projects.forEach((item, index) => {
@@ -80,7 +82,7 @@ function iconMap(tech) {
     nodejs: "node-js",
     nextjs: "react", // Next.js pakai ikon React di FontAwesome
     reactjs: "react",
-    typescript: "js" // Ganti kalau kamu punya ikon ts sendiri
+    typescript: "js"
   };
   return map[tech] || "laptop-code";
 }
