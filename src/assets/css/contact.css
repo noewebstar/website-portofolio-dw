@@ -88,6 +88,7 @@ body {
     top: 70%;
     transform: translateY(-50%);
     pointer-events: none;
+  
 }
 
 .form-group-button{

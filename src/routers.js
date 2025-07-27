@@ -1,8 +1,8 @@
 import express from "express";
-import path from "path";
-import fs from "fs";
 import { fileURLToPath } from "url";
-import { dirname } from "path";
+import path, { dirname } from "path";
+import db from "../models/index.js";
+const { Contact } = db;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -16,6 +16,7 @@ router.get("/", (req, res) => {
 router.get("/myproject", (req, res) => {
   res.render("myproject", { title: "My Project" });
 });
+
 router.post("/add_project", (req, res) => {
   const { projectName, startDate, endDate, description, tech } = req.body;
   console.log("New Project:", { projectName, startDate, endDate, description, tech });
@@ -31,8 +32,27 @@ router.get("/detail", (req, res) => {
 });
 
 router.get("/contact", (req, res) => {
-  res.render("contact", { title: "Contact" });
+  const phoneNumber = "+62 812 3456 7890"; 
+  res.render("contact", { title: "Contact", phoneNumber });
 });
 
+router.post("/contact", async (req, res) => {
+  const { name, email, number, subject, message } = req.body;
+
+  try {
+    await Contact.create({
+      name,
+      email,
+      phoneNumber: number,
+      subject,
+      message,
+    });
+
+    res.redirect("/contact");
+  } catch (err) {
+    console.error("Error saving contact:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
 export default router;
