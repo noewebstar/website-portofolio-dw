@@ -175,13 +175,6 @@ body{
   width: 100%;
 }
 
-.row-content {
-  /* display: grid; */
-  /* gap: 15px; */
-  /* margin: 16px 0; */
-  /* grid-template-columns: 1fr; Default: 1 kolom */
-}
-
 
 .row-flex{
   display: flex;
@@ -225,7 +218,7 @@ body{
   }
 
   .card {
-    min-height: auto;
+    min-height: auto ;
     transform: none;
   }
 

@@ -33,26 +33,31 @@ router.get("/detail", (req, res) => {
 
 router.get("/contact", (req, res) => {
   const phoneNumber = "+62 812 3456 7890"; 
-  res.render("contact", { title: "Contact", phoneNumber });
+  res.render("contact", {
+    layout: false,        
+    title: "Contact",      
+    phoneNumber,
+    status : false,
+    message : ""           
+  });
 });
 
+
+
 router.post("/contact", async (req, res) => {
-  const { name, email, number, subject, message } = req.body;
-
   try {
-    await Contact.create({
-      name,
-      email,
-      phoneNumber: number,
-      subject,
-      message,
-    });
-
-    res.redirect("/contact");
+    const { name, email, phoneNumber, subject, message } = req.body;
+    await Contact.create({ name, email, phoneNumber, subject, message });
+    
+    res.render('contact',{
+      "status":true,
+      "message": "data berhasil di kirim!"
+    })
   } catch (err) {
-    console.error("Error saving contact:", err);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Error submitting contact form: " + err.message);
   }
 });
 
+
 export default router;
+// 
