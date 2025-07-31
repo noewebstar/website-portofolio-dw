@@ -9,7 +9,7 @@ function loadProjects() {
         warning.style.display = "none";
       }
     }
-    container.innerHTML = ""; // bersihkan isi lama
+    container.innerHTML = "";
     projects.forEach((item, index) => {
       const col = document.createElement("div");
       col.classList.add("col-md-4");
@@ -38,7 +38,7 @@ function loadProjects() {
       container.appendChild(col);
     });
 
-     // Tambahkan event listener ke tombol delete setelah semua elemen dimuat
+  
      document.querySelectorAll(".btn-delete").forEach((button) => {
       button.addEventListener("click", function (e) {
         e.preventDefault(); 
@@ -80,7 +80,7 @@ document.querySelector(".btn-add").addEventListener("click",()=>{
 function iconMap(tech) {
   const map = {
     nodejs: "node-js",
-    nextjs: "react", // Next.js pakai ikon React di FontAwesome
+    nextjs: "react", 
     reactjs: "react",
     typescript: "js"
   };

@@ -1,4 +1,5 @@
 import express from "express";
+import session from 'express-session';
 import path from "path";
 import { fileURLToPath } from "url";
 import route from "./src/routers.js";
@@ -10,6 +11,11 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(session({
+  secret: 'secret_rahasia_noe', 
+  resave: false,
+  saveUninitialized: false,
+}));
 
 app.use('/fontawesome', express.static(path.join(__dirname, 'node_modules/@fortawesome/fontawesome-free')));
 app.set("view engine", "hbs");

@@ -10,7 +10,7 @@ const config = {
     port: process.env.DB_PORT || 5432,
     dialect: process.env.DB_TYPE || "postgres",
   },
-  // test dan production bisa menyusul
+  
 };
 
 export default config;
