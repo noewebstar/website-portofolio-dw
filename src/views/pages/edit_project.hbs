@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/add_project.css" />
+  <link rel="stylesheet" href="/css/navbar.css" />
+  <link rel="stylesheet" href="/css/root.css" />
+  <link rel="stylesheet" href="/fontawesome/css/all.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div>
+        <h2>{{#if isEdit}}Edit{{else}}Add{{/if}} My Project</h2>
+      </div>
+
+      <form action="/project/update/{{project.id}}" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="projectName">Project Name</label>
+          <input type="text" id="projectName" name="projectName" value="{{project.projectName}}" />
+          
+          <div class="date-container">
+            <div class="date-input">
+              <label for="startDate">Start Date</label>
+              <input type="date" id="startDate" name="startDate" value="{{project.startDate}}" />
+            </div>
+            <div class="date-input">
+              <label for="endDate">End Date</label>
+              <input type="date" id="endDate" name="endDate" value="{{project.endDate}}" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description">{{project.description}}</textarea>
+        </div>
+
+        <label>Technologies</label>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="tech" value="nodejs"
+              {{#if project.attributes}}
+                {{#each project.attributes}}
+                  {{#if (eq name "nodejs")}}checked{{/if}}
+                {{/each}}
+              {{/if}}
+            /> Node Js
+          </label>
+          <label>
+            <input type="checkbox" name="tech" value="nextjs"
+              {{#if project.attributes}}
+                {{#each project.attributes}}
+                  {{#if (eq name "nextjs")}}checked{{/if}}
+                {{/each}}
+              {{/if}}
+            /> Next Js
+          </label>
+          <label>
+            <input type="checkbox" name="tech" value="reactjs"
+              {{#if project.attributes}}
+                {{#each project.attributes}}
+                  {{#if (eq name "reactjs")}}checked{{/if}}
+                {{/each}}
+              {{/if}}
+            /> React Js
+          </label>
+          <label>
+            <input type="checkbox" name="tech" value="typescript"
+              {{#if project.attributes}}
+                {{#each project.attributes}}
+                  {{#if (eq name "typescript")}}checked{{/if}}
+                {{/each}}
+              {{/if}}
+            /> TypeScript
+          </label>
+        </div>
+
+        <label for="uploadImage">Upload Image</label>
+        <div class="input-file">
+          <input type="file" id="fileInput" name="image" hidden />
+          <div class="label-upload">
+            <label for="fileInput" class="custom-file-button">choose</label>
+            <p class="value-input-upload">
+              {{#if project.image}}{{project.image}}{{/if}}
+            </p>
+          </div>
+          <i class="fa-solid fa-link icon-link"></i>
+        </div>
+
+        <div class="form-group-button">
+          <button type="submit" class="btn btn-dark mt-5">
+            {{#if isEdit}}Update Project{{else}}Submit{{/if}}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/add_project.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

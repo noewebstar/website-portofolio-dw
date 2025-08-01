@@ -1,0 +1,97 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/detail.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/root.css" />
+    <link
+      rel="stylesheet"
+      href="/node_modules/@fortawesome/fontawesome-free/css/all.css"
+    />
+
+  </head>
+  <body>
+
+    <div class="container">
+  <div class="content">
+    <h1 class="title">{{project.projectName}}</h1>
+
+    <div class="top-section">
+      <div class="left">
+        <img
+          src="/uploads/{{project.image}}"
+          class="image-detail"
+          alt="img-detail"
+        />
+      </div>
+
+      <div class="right">
+        <h3>Duration</h3>
+        <p>
+          <i class="fa-solid fa-calendar-days"></i>
+          <span class="startDate">{{project.startDate}}</span>
+          -
+          <span class="endDate">{{project.endDate}}</span>
+        </p>
+        <p>
+          <i class="fa-regular fa-clock"></i>
+          <span class="duration">{{project.duration}}</span>
+        </p>
+
+        <h3>Technologies</h3>
+        <div class="tech-icons d-flex flex-wrap gap-3 mt-2">
+          {{#each project.attributes}}
+            {{#ifCond name "==" "nodejs"}}
+              <div class="tech-item text-center">
+                <i class="fa-brands fa-node-js fa-2xl text-success"></i>
+                <p class="tech-name">Node.js</p>
+              </div>
+            {{/ifCond}}
+            {{#ifCond name "==" "nextjs"}}
+              <div class="tech-item text-center">
+                <i class="fa-brands fa-react fa-2xl text-primary"></i>
+                <p class="tech-name">Next.js</p>
+              </div>
+            {{/ifCond}}
+            {{#ifCond name "==" "reactjs"}}
+              <div class="tech-item text-center">
+                <i class="fa-brands fa-react fa-2xl text-info"></i>
+                <p class="tech-name">React.js</p>
+              </div>
+            {{/ifCond}}
+            {{#ifCond name "==" "typescript"}}
+              <div class="tech-item text-center">
+                <i class="fa-solid fa-code fa-2xl text-secondary"></i>
+                <p class="tech-name">TypeScript</p>
+              </div>
+            {{/ifCond}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+    <div class="description">
+      <p class="description-value">
+        {{project.description}}
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/detailProject.js"></script>
+  </body>
+</html>

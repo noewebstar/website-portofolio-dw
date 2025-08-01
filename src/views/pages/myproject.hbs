@@ -1,0 +1,135 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/myproject.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/root.css" />
+    <link rel="stylesheet" href="/fontawesome/css/all.css" />
+
+  </head>
+  <body>
+
+    <div class="container">
+      <h1 class="PROJECT">MY PROJECT</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quo
+        aspernatur earum ut harum totam incidunt accusantium, ullam voluptates
+        iste laudantium illo aliquid et, possimus quas maiores eligendi.
+        Maiores, nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Error explicabo facilis ipsam accusantium eos, ea sint, ad,
+        nostrum non nihil vel blanditiis? Pariatur, recusandae obcaecati illum
+        itaque delectus molestias libero?
+      </p>
+      {{#if user}}
+        <div class="row-flex space-end">
+          <a class="add_project" href="/add_project">
+            <button class="btn btn-add btn-primary">
+              + Add Project
+            </button>
+          </a>
+        </div>
+        <hr />
+
+      {{/if}}
+
+      <div class="warning">
+        <div class="col-warning">
+          <div style="text-align: center; padding: 30px;">
+            {{#if user}}
+              {{#if projects}}
+                {{#unless projects.length}}
+                  <p style="font-size: 18px; color: #888;">
+                    Belum ada project.<br />
+                    Silakan tambahkan data project Anda terlebih dahulu.
+                  </p>
+                {{/unless}}
+              {{/if}}
+            {{else}}
+              {{#unless projects.length}}
+                <p style="font-size: 18px; color: #888;">
+                  Belum ada project
+                </p>
+              {{/unless}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {{#each projects}}
+          <div class="col">
+            <div class="card h-100">
+              <a
+                href="/project/{{this.id}}"
+                style="text-decoration: none; color: inherit;"
+              >
+                <img
+                  src="/uploads/{{this.image}}"
+                  alt="Image"
+                  class="card-img-top"
+                /></a>
+              <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                  <h5 class="card-title">{{this.projectName}}</h5>
+                  <p class="text-muted">Durasi:
+                    {{this.startDate}}
+                    -
+                    {{this.endDate}}</p>
+                  <p class="card-text">{{this.description}}</p>
+                </div>
+
+                <div>
+                  <div class="mb-2">
+                    {{#each this.attributes}}
+                      {{#ifCond name "==" "nodejs"}}
+                        <i class="fa-brands fa-node-js fa-xl me-2"></i>
+                      {{/ifCond}}
+                      {{#ifCond name "==" "nextjs"}}
+                        <i class="fa-brands fa-react fa-xl me-2"></i>
+                      {{/ifCond}}
+                      {{#ifCond name "==" "reactjs"}}
+                        <i class="fa-brands fa-react fa-xl me-2"></i>
+                      {{/ifCond}}
+                      {{#ifCond name "==" "typescript"}}
+                        <i class="fa-solid fa-code fa-xl me-2"></i>
+                      {{/ifCond}}
+                    {{/each}}
+                  </div>
+                  {{#if ../user}}
+                    <div class="d-flex justify-content-between mt-3">
+                      <a
+                        href="/project/edit/{{this.id}}"
+                        class="btn btn-sm btn-dark"
+                        style="width: 40%;height:40px"
+                      >Edit</a>
+                      <form
+                        action="/project/delete/{{this.id}}"
+                        method="POST"
+                        class="form-delete"
+                        style="display:inline;width: 40%;height:40px"
+                      >
+                        <button
+                          class="btn btn-sm btn-danger"
+                          style="height:40px"
+                        >Delete</button>
+                      </form>
+                    </div>
+                  {{/if}}
+
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    <script src="/js/project.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

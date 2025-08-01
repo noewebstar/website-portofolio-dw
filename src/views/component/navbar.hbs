@@ -1,0 +1,33 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <img src="/img/dw-logo.png" class="logoDW" alt="Logo" />
+    <a href="/" class="nav-link">Home</a>
+    <a href="/myproject" class="nav-link">My Project</a>
+  </div>
+  <div class="navbar-right">
+
+    {{#if user}}
+      <div class="dropdown">
+        <button
+          class="btn btn-light dropdown-toggle d-flex align-items-center gap-2"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fas fa-user-circle fa-lg"></i>
+          <span>{{user.name}}</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="/logout">Logout</a></li>
+        </ul>
+      </div>
+    {{else}}
+      <a href="/contact">
+        <button class="contact-button">Contact Me</button>
+      </a>
+      <a style="margin-left: 10px;" href="/login">
+        <button class="btn btn-primary">Sign in</button>
+      </a>
+    {{/if}}
+  </div>
+</nav>

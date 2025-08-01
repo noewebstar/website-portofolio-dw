@@ -1,0 +1,100 @@
+.container{
+    /* background-color:#ffff;  */
+    margin-top: 100px;
+    /* border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding-bottom: 20px; */
+}
+.HI2{
+    font-weight: 700;
+    font-size: x-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 10px;
+}
+.loremm{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: justify;
+    padding-bottom: 10px;
+    width: 80%;
+}
+.contact{
+    color: #fff;
+    background-color: #111727;
+    border-radius: 30px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    padding-left:28px;
+    padding-right: 28px;
+    font-size: 17px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+.download{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    padding-right: 10px;
+    padding-left: 20px;
+}
+.icon{
+    display: flex;
+    align-items: center;
+}
+.name{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+.job{
+margin-top: -30px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.ic{
+    cursor: pointer;
+}
+
+.ic:active{
+    transform: scale(1.2);
+}
+
+
+.grup_icon{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    padding-top: 50px;
+}
+.img1{
+    margin-bottom: 30px;
+    width: 330px;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px 0px rgba(0, 0, 0, 0.2);
+   
+}
+.content-img{
+   padding-right: 20px;
+   padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    
+}
+.identity{
+    text-align: center;
+    
+}
+  
+.container-main{ 
+    padding-left: 5%; 
+    padding-right: 5%;
+    padding-top: 7%; 
+    padding-bottom: 7%;
+ }
+ 
+ @media screen and (max-width: 768px) {
+  .row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

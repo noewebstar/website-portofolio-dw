@@ -1,0 +1,117 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.logoDW {
+  width: 50px;
+}
+
+.contact-button {
+  background-color: #0f172a;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.contact-button:active {
+  transform: scale(1.1);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 60px;
+}
+
+.navbar-right {
+  padding-right: 70px;
+  display: flex;
+}
+.dropdown {
+  position: relative;
+  margin-left: 10px;
+}
+
+/* Tombol profil */
+.dropdown .btn.dropdown-toggle {
+  background-color: #f8f9fa; /* warna terang */
+  border: 1px solid #dee2e6;
+  border-radius: 30px;
+  padding: 6px 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #343a40;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.dropdown .btn.dropdown-toggle:hover {
+  background-color: #e9ecef;
+  color: #212529;
+}
+
+/* Ikon user */
+.dropdown .fa-user-circle {
+  color: #495057;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  border-radius: 10px;
+  padding: 10px 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border: none;
+}
+
+/* Item di dalam dropdown */
+.dropdown-menu .dropdown-item {
+  font-size: 0.9rem;
+  padding: 8px 20px;
+  color: #343a40;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #f1f3f5;
+  color: #000;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; /* Untuk menghindari delay saat hover */
+}
+
+.logo {
+  height: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .navbar-left,
+  .navbar-right {
+    padding: 0 20px;
+  }
+}
